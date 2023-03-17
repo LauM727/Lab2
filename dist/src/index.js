@@ -1,10 +1,10 @@
 import data from "./data.js"
-import * as components from "./components/index.js";
+import * as components from "./components/index.js"
 
 class AppContainer extends HTMLElement {
     constructor(){
         super();
-        this.attachShadow({mode: "open"})
+        this.attachShadow({mode: "open"});
     }
 
     connectedCallback(){
@@ -12,12 +12,22 @@ class AppContainer extends HTMLElement {
     }
 
     render(){
-        data.forEach((item) => {
+        this.shadowRoot.innerHTML += `
+        <my-boton></my-boton>
+        `
+        this.shadowRoot.innerHTML += `
+        <my-nav></my-nav>
+        `
+            data.forEach((item) => {
             this.shadowRoot.innerHTML +=  `
-            <each-item named=${item.named} image=${item.image} link=${item.link}></each-item>
+            <div>
+                <each-item name=${item.name} image=${item.image} link=${item.link}></each-item>
+            </div>
+
             `
         }
-        )
+        );
+
     }
 }
 
