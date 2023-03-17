@@ -1,6 +1,6 @@
 class CardI extends HTMLElement{
 
-    //intagram
+    //instagram
 
     constructor(){
         super();
